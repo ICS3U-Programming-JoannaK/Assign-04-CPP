@@ -72,8 +72,9 @@ int main() {
         if (angle % 180 == 90) {
             std::cout << angle << " \t\tUndefined" << std::endl;
         } else {
-            //
+            // Converts the degrees to radians
             float radians = angle * (M_PI / 180);
+            //
             float tanNumber = tan(radians);
             std::cout << angle << "\t\t" << std::fixed
             << std::setprecision(5) << tanNumber << std::endl;
