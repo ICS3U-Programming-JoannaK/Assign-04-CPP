@@ -74,7 +74,7 @@ int main() {
         } else {
             // Converts the degrees to radians
             float radians = angle * (M_PI / 180);
-            //
+            // Calculates the tangent of the angle
             float tanNumber = tan(radians);
             std::cout << angle << "\t\t" << std::fixed
             << std::setprecision(5) << tanNumber << std::endl;
