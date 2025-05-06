@@ -68,9 +68,11 @@ int main() {
     std::cout << "---------------------------\n";
     // This loop prints out the angles on the table in steps of 10 angles
     for (angle = startInteger; angle <= endInteger; angle += 10) {
+        // Checks where the angle is undefined (90 and 270)
         if (angle % 180 == 90) {
             std::cout << angle << " \t\tUndefined" << std::endl;
         } else {
+            //
             float radians = angle * (M_PI / 180);
             float tanNumber = tan(radians);
             std::cout << angle << "\t\t" << std::fixed
