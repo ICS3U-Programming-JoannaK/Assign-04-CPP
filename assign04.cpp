@@ -52,8 +52,7 @@ int main() {
         } else {
             // Displays when the user's input is not valid
             std::cout << "Angles should be in the range of 0 and 360.\n";
-            std::cout << "Starting angle must be smaller than ending angle.\n";
-                    }
+        }
         // Catches erroneous input for the starting angle
         } catch (std::invalid_argument) {
         std::cout << endString << " is not a valid input" << std::endl;
@@ -63,22 +62,28 @@ int main() {
             std::cout << startString << " is not a valid input" << std::endl;
         }
         }
-    // Displays the table's header/title
-    std::cout << "Angle\t\tTan\n";
-    std::cout << "---------------------------\n";
-    // This loop prints out the angles on the table in steps of 10 angles
-    for (angle = startInteger; angle <= endInteger; angle += 10) {
-        // Checks where the angle is undefined (90 and 270)
-        if (angle % 180 == 90) {
-            std::cout << angle << " \t\tUndefined" << std::endl;
-        } else {
-            // Converts the degrees to radians
-            float radians = angle * (M_PI / 180);
-            // Calculates the tangent of the angle
-            float tanNumber = tan(radians);
-            // Prints the tangent of the angle in 5 decimal places
-            std::cout << angle << "\t\t" << std::fixed
-            << std::setprecision(5) << tanNumber << std::endl;
+
+    if (startInteger > endInteger) {
+        std::cout << "Starting angle must be smaller than ending angle.\n";
+    } else {
+        std::cout << "Angle\t\tTan\n";
+        std::cout << "---------------------------\n";
+        // This loop prints out the angles on the table in steps of 10 angles
+        for (angle = startInteger; angle <= endInteger; angle += 10) {
+            // Checks where the angle is undefined (90 and 270)
+            if (angle % 180 == 90) {
+                std::cout << "\n";
+                std::cout << angle << " \t\tUndefined" << std::endl;
+            } else {
+                // Converts the degrees to radians
+                float radians = angle * (M_PI / 180);
+                // Calculates the tangent of the angle
+                float tanNumber = tan(radians);
+                // Prints the tangent of the angle in 5 decimal places
+                std::cout << "\n";
+                std::cout << angle << "\t\t" << std::fixed
+                          << std::setprecision(5) << tanNumber << std::endl;
+            }
         }
     }
-}
+    }
